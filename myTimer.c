@@ -14,12 +14,10 @@ void initTimer(unsigned int timer, unsigned int preScaler, unsigned int count)
 {
     // For the specified timer and pre-scale value, put the timer in 32-bit periodic mode.
 
-        Timer32_initModule(TIMER0, TIMER0_PRESCALER, TIMER32_32BIT, TIMER32_PERIODIC_MODE);
-        Timer32_setCount(TIMER0, count);
-        Timer32_startTimer(TIMER0, REPEAT);
-        Timer32_initModule(TIMER1, TIMER1_PRESCALER, TIMER32_32BIT, TIMER32_PERIODIC_MODE);
-        Timer32_setCount(TIMER1, count);
-        Timer32_startTimer(TIMER1, REPEAT);
+        Timer32_initModule(timer,preScaler, TIMER32_32BIT, TIMER32_PERIODIC_MODE);
+        Timer32_setCount(timer, count);
+        Timer32_startTimer(timer, REPEAT);
+
     // For the specified timer, pass the count value.
 
 

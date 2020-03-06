@@ -44,8 +44,7 @@ int main(void)
         // YOU MUST WRITE timer1expired IN myTimer.c
         if (timer1Expired())
         {
-            historyS1 = historyS1 << 1;
-            historyS1 |= checkStatus_BoosterpackS1();
+            historyS1 = (historyS1 << 1)| checkStatus_BoosterpackS1();
         }
 
 
@@ -87,7 +86,7 @@ void initBoard()
 // Since count is an unsigned integer, you can mask the value in some way.
 void changeLaunchpadLED2(unsigned int count)
 {
-    switch(count)
+    switch(count%8)
     {
         case 0:
             turnOff_LaunchpadLED2Red();
@@ -128,11 +127,6 @@ void changeLaunchpadLED2(unsigned int count)
             turnOn_LaunchpadLED2Red();
             turnOn_LaunchpadLED2Blue();
             turnOn_LaunchpadLED2Green();
-            break;
-        default:
-            turnOff_LaunchpadLED2Red();
-            turnOff_LaunchpadLED2Blue();
-            turnOff_LaunchpadLED2Green();
             break;
     }
 }
